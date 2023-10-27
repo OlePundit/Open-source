@@ -1,3 +1,5 @@
+<h3 align="left">Introduction</h3>
+
 This is an Open-source project.
 It comprises of Kenyan developers who have specialized in different stacks.
 The founder of this project noticed a lack of authentic Kenyan/African photos in search engines and stock photos platform.
