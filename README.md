@@ -1,6 +1,6 @@
 This is an Open-source project.
 It comprises of Kenyan developers who have specialized in different stacks.
-The funder of this project noticed a lack of authentic Kenyan/African photos in search engines and stock photos platform.
+The founder of this project noticed a lack of authentic Kenyan/African photos in search engines and stock photos platform.
 This creates a stumbling block when doing presentations/projects that require one to attach images/photos of black people mostly in PR or marketing campaigns while developing ads,
 flyers, brochures etc.
 The idea of this project is to come up with a database of authentic African/Kenyan photos where users may download these photos to serve their respective needs
