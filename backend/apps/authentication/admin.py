@@ -12,7 +12,7 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserAdminCreationForm
     fieldsets = (
         (None, {"fields": ("email",)}),
-        (_("Personal info"), {"fields": ("first_name", "last_name", "created_by")}),
+        (_("Personal info"), {"fields": ("username", "first_name", "last_name")}),
         (
             _("Permissions"),
             {
