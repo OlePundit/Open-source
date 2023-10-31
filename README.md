@@ -73,3 +73,9 @@ For more details, see this gist - [Set up a Python 3 virtual environment](https:
     ```bash
     source environmentname/bin/activate
     ```
+### Install Django
+On your project root dir type the following command
+
+```bash
+pip install django
+```
