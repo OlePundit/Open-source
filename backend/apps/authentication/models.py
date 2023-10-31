@@ -23,7 +23,7 @@ class User(AbstractUser, TimeStampedModel, SoftDeletableModel):
     Default custom user model.
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    username = models.CharField(_("User Name"), blank=True, unique=True, max_length=255)
+    username = models.CharField(_("User Name"), blank=True, max_length=255)
     first_name = models.CharField(_("First Name of User"), blank=True, max_length=255)
     last_name = models.CharField(_("Last Name of User"), blank=True, max_length=255)
     email = models.EmailField(_("Email address"), unique=True)
