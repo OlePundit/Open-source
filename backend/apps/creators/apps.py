@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class KenyapixConfig(AppConfig):
+class CreatorsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'kenyapix'
+    name = 'apps.creators'
