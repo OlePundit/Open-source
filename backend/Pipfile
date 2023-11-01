@@ -20,13 +20,13 @@ social-auth-app-django = "==5.4.0"
 django-storages = "*"
 django-cleanup = "*"
 drf-spectacular = "*"
+drf-spectacular-sidecar = "*"
 whitenoise = "*"
 django-notifications-hq = "*"
 ipython = "*"
 drf-writable-nested = "*"
 
 [dev-packages]
-drf-spectacular-sidecar = "*"
 
 [requires]
 python_version = "3.11"
