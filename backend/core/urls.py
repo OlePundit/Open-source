@@ -33,11 +33,11 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
-    # path(
-    #     "api/schema/redoc/",
-    #     SpectacularRedocView.as_view(url_name="schema"),
-    #     name="redoc",
-    # ),
+    path(
+        "api/schema/redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    ),
 ]
 
 
@@ -46,11 +46,11 @@ API_AUTH = r"^api/v1/auth/"
 
 # API URLS
 urlpatterns += [
-    re_path(API_AUTH, include("rest_framework.urls")),
-    re_path(API_AUTH, include("djoser.urls")),
-    re_path(API_AUTH, include("djoser.urls.jwt")),
-    re_path("api/v1/auth/jwt/destroy/", token_blacklist, name="jwt-logout"),
-    # re_path(API_BASE, include("core.api_router")),
+    re_path(API_BASE, include("rest_framework.urls")),
+    # re_path(API_AUTH, include("djoser.urls")),
+    re_path(API_BASE, include("djoser.urls.jwt")),
+    re_path("api/v1/jwt/destroy/", token_blacklist, name="jwt-logout"),
+    re_path(API_BASE, include("core.api")),
 ]
 
 if settings.DEBUG:
