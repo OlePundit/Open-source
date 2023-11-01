@@ -73,7 +73,7 @@ THIRD_PARTY_APPS = [
     'notifications',
     'storages',
     'imagekit', # process images before uploads e.g set size and quality
-    'django_cleanup', # prevent duplication of files in files fields
+    'django_cleanup.apps.CleanupConfig', # prevent duplication of files in files fields
     'drf_spectacular', # For api documentation in development
     'drf_spectacular_sidecar', # provides static files for offline view of api documentation
 ]
@@ -109,9 +109,9 @@ CORS_ALLOWED_ORIGINS = (
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticatedOrReadOnly",),
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
@@ -121,7 +121,7 @@ REST_FRAMEWORK = {
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
     "TITLE": "AfroPix backend API",
-    "DESCRIPTION": "Documentation of API endpoints of AfroPix backed",
+    "DESCRIPTION": "Documentation of API endpoints for AfroPix backed",
     "VERSION": "1.0.0",
     "COMPONENT_SPLIT_REQUEST": True,
     "ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE": True,
@@ -141,8 +141,10 @@ DJOSER = {
     "SEND_CONFIRMATION_EMAIL": True,
     "HIDE_USERS": True,
     "SERIALIZERS": {
-        # "user": "apps.users.api.serializers.UserSerializer",
-        # "current_user": "apps.users.api.serializers.UserSerializer",
+        "user": "apps.authentication.serializers.UserSerializer",
+        "current_user": "apps.authentication.serializers.UserSerializer",
+        "user_create": "apps.authentication.serializers.UserCreateSerializer",
+        "user_create_password_retype": "apps.authentication.serializers.UserCreatePasswordRetypeSerializer",
     },
 }
 
