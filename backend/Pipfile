@@ -22,6 +22,8 @@ django-cleanup = "*"
 drf-spectacular = "*"
 whitenoise = "*"
 django-notifications-hq = "*"
+ipython = "*"
+drf-writable-nested = "*"
 
 [dev-packages]
 drf-spectacular-sidecar = "*"

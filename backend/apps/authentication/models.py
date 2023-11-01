@@ -14,7 +14,7 @@ from apps.authentication.managers import UserManager
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return f"users/user-{instance.pk}/{filename}"
+    return f"users/user-{instance.id}/{filename}"
 
 
 # TODO: ADD DJANGO GUARDIAN FOR PERMISSION / ANY RELEVANT 3RD PARTY APP
@@ -22,11 +22,15 @@ class User(AbstractUser, TimeStampedModel, SoftDeletableModel):
     """
     Default custom user model.
     """
+
+    USER_TYPE = Choices("user", "creator")
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     username = models.CharField(_("User Name"), blank=True, max_length=255)
-    first_name = models.CharField(_("First Name of User"), blank=True, max_length=255)
-    last_name = models.CharField(_("Last Name of User"), blank=True, max_length=255)
+    first_name = models.CharField(_("First Name"), blank=True, max_length=255)
+    last_name = models.CharField(_("Last Name"), blank=True, max_length=255)
     email = models.EmailField(_("Email address"), unique=True)
+    type = StatusField(_("User Type"), choices_name="USER_TYPE", default="user")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -48,7 +52,6 @@ class Profile(TimeStampedModel, SoftDeletableModel):
         format="JPEG",
         options={"quality": 80},
     )
-
     class Meta:
         verbose_name = "User Profile"
         verbose_name_plural = "User Profiles"
