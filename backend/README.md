@@ -55,17 +55,38 @@ Read more... [Prefered installation of pipenv](https://pipenv.pypa.io/en/latest/
     ```bash
     $ pipenv install # pipenv will create a new virtual environment and then install all dependencies in the Pipfile
     ```
-- Activate the New env and Start Coding
+- Activate the New environment
     ```bash
     $ pipenv shell
     ```
     if using vscode
 
     ```bash
-    $ code .
+    $ code .  # open the folder and start coding
     ```
 
     to uninstall the environment created, within the same directory run
     ```bash
     $ pipenv --rm
     ```
+
+- Make Database Migrations
+  ```bash
+  $ python manage.py migrate
+  ```
+
+- Create user with admin clearance
+  ```bash
+  $ python manage.py createsuperuser  # fill in the required information
+  ```
+
+- Start Development Server
+  ```bash
+  $ python manage.py runserver
+  ```
+
+  To login to the default django admin, go to: `localhost:8000/admin`
+
+  To view the exposed api endpoints documentation go to: `localhost:8000/api/schema/redoc/  # make sure you've loggedin to the admin first.`
+
+  To view djangorestframeworks browsable api endpoint got to: `localhost:8000//api/v1/`
