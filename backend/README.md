@@ -1,23 +1,20 @@
 
 
-## Getting Started 
+## Getting Started for Development
 
-### 1 Install Python 
-
+### 1. Install Python(3.11)
 
 - Debian/Ubuntu
      Install using [apt-get](https://linux.die.net/man/8/apt-get).
      Install using [apt-get](https://linux.die.net/man/8/apt-get).
-    
-    Install using [apt-get](https://linux.die.net/man/8/apt-get).
-    
-        $ sudo apt-get update
-        $ sudo apt-get install python3       
-        
 
+    Install using [apt-get](https://linux.die.net/man/8/apt-get).
+
+        $ sudo apt-get update
+        $ sudo apt-get install python3
 
 +   - macOS
-    1. Install [Brew](https://brew.sh). 
+    1. Install [Brew](https://brew.sh).
     2. Install Python using Brew:
         ```sh
         $ brew install python3
@@ -30,34 +27,45 @@
 
 For more details, see this gist - [Set up a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7).
 
-### 2 Clone this repo in your local machine
+###  2. Fork this repo.
+Read more... [How to fork a github repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+
+### 3. Clone the fork to your local machine
+Read more... [How to clone a github repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ```bash
-    https://github.com/yourusername/Open-source.git
+$ git clone https://github.com/yourusername/Open-source.git
 ```
 
-### 3 Set up virtual environment
+### 4. Set up virtual environment and install dependencies with pipenv
+Read more... [Prefered installation of pipenv](https://pipenv.pypa.io/en/latest/installation/#preferred-installation-of-pipenv)
 
-#### Navigate to the project directory and follow the steps below
+#### Navigate to the project backend folder and follow the steps below
 
-- Debian/Ubuntu
- 1. Install virtual environment
+- Install pipenv
+    1. using pip
+    ```bash
+    $ pip install pipenv
+    ```
+    2. using homebrew
+    ```bash
+    $ brew install pipenv
+    ```
+- Install Dependencies
+    ```bash
+    $ pipenv install # pipenv will create a new virtual environment and then install all dependencies in the Pipfile
+    ```
+- Activate the New env and Start Coding
+    ```bash
+    $ pipenv shell
+    ```
+    if using vscode
 
     ```bash
-    pip install virtualenv
+    $ code .
     ```
-2. name your virtual environent 
-    ```bash
-   python -m venv environment_name
-    ```
-3. Activate
 
+    to uninstall the environment created, within the same directory run
     ```bash
-    source environmentname/bin/activate
+    $ pipenv --rm
     ```
-### Install Django
-On your project root dir type the following command
-
-```bash
-pip install django
-```
