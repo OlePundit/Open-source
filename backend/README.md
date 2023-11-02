@@ -19,7 +19,7 @@
         ```sh
         $ brew install python3
         ```
-    3. Make your the Brew executables `bin` directory is in your `PATH` variable.
+    3. Make sure the Brew executables `bin` directory is in your `PATH` variable.
 - Windows
     1. Download Python from the [Windows Download](https://www.python.org/downloads/windows/) page.
     2. Run the installer.
