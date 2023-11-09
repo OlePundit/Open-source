@@ -61,6 +61,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
 ]
 
 THIRD_PARTY_APPS = [
@@ -76,11 +77,13 @@ THIRD_PARTY_APPS = [
     'django_cleanup.apps.CleanupConfig', # prevent duplication of files in files fields
     'drf_spectacular', # For api documentation in development
     'drf_spectacular_sidecar', # provides static files for offline view of api documentation
+    'django_resized'
 ]
 
 LOCAL_APPS = [
     'apps.authentication',
     'apps.creators',
+    'apps.posts'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -133,6 +136,7 @@ SPECTACULAR_SETTINGS = {
 
 DJOSER = {
     "PASSWORD_RESET_CONFIRM_URL": "auth/password/reset/confirm/{uid}/{token}",
+    "LOGIN_FIELD": "email",
     "USERNAME_RESET_CONFIRM_URL": "auth/username/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "auth/account/activate/{uid}/{token}",
     "INVITE_ACTIVATION_URL": "auth/account/activate/invite/{uid}/{token}",
