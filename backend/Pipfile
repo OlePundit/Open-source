@@ -25,6 +25,7 @@ whitenoise = "*"
 django-notifications-hq = "*"
 ipython = "*"
 drf-writable-nested = "*"
+django-resized = "*"
 
 [dev-packages]
 
