@@ -71,6 +71,7 @@ Any line cannot be longer than 100 characters, meaning be concise.
  * documentation
  * style
  * test
+ * revert
 
 ```<scope>``` should be something specific to the commit change. For example:
 
