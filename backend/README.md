@@ -85,12 +85,11 @@ The **AFRO-PIX-API** is the backbone of an application for an image sharing app.
 
 - Running migrations
 
-    - Initial migration commands
-        ```
-        make migrations
+    ```
+    make migrations
 
-        make migrate
-        ```
+    make migrate
+    ```
 
 
 
