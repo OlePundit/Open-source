@@ -22,6 +22,8 @@ from django.urls import path, re_path
 from rest_framework_simplejwt.views import token_blacklist
 from drf_spectacular.views import (SpectacularAPIView, SpectacularRedocView,
                                    SpectacularSwaggerView)
+from apps.posts.views import PostCreateView
+
 
 
 urlpatterns = [
@@ -38,6 +40,8 @@ urlpatterns = [
         SpectacularRedocView.as_view(url_name="schema"),
         name="redoc",
     ),
+    path("api/posts/create/", PostCreateView.as_view(), name='post-create'),
+
 ]
 
 
@@ -51,6 +55,7 @@ urlpatterns += [
     re_path(API_BASE, include("djoser.urls.jwt")),
     re_path("api/v1/jwt/destroy/", token_blacklist, name="jwt-logout"),
     re_path(API_BASE, include("core.api")),
+
 ]
 
 if settings.DEBUG:
