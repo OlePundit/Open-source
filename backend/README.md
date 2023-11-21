@@ -65,6 +65,7 @@ The **AFRO-PIX-API** is the backbone of an application for an image sharing app.
 
         $ make  # install dependencies from Pipfile
         ```
+        > **_NOTE:_**  If you don't have make installed, you can install or run the commands in the make file manually on the cmd
 
 - Create Application environment variables and save them in .env file in the root folder
     ```
