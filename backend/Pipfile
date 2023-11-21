@@ -7,9 +7,7 @@ name = "pypi"
 django = "==4.2.6"
 django-imagekit = "==5.0.0"
 django-model-utils = "==4.3.1"
-django-phonenumber-field = "==7.2.0"
 djangorestframework = "==3.14.0"
-phonenumbers = "==8.13.23"
 python-decouple = "==3.8"
 django-cors-headers = "==4.3.0"
 django-appconf = "==1.0.5"
@@ -19,14 +17,17 @@ djoser = "==2.2.0"
 social-auth-app-django = "==5.4.0"
 django-storages = "*"
 django-cleanup = "*"
-drf-spectacular = "*"
-drf-spectacular-sidecar = "*"
 whitenoise = "*"
 django-notifications-hq = "*"
 ipython = "*"
 drf-writable-nested = "*"
+psycopg = {extras = ["binary"], version = "*"}
+drf-spectacular = {extras = ["sidecar"], version = "*"}
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+django-resized = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.11"

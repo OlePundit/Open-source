@@ -1,7 +1,6 @@
 from django.db import transaction, IntegrityError
 from django.contrib.auth.password_validation import validate_password
 from django.core import exceptions as django_exceptions
-from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 from rest_framework.settings import api_settings
 from drf_writable_nested.mixins import NestedUpdateMixin
