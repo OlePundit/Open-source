@@ -24,6 +24,7 @@ drf-writable-nested = "*"
 psycopg = {extras = ["binary"], version = "*"}
 drf-spectacular = {extras = ["sidecar"], version = "*"}
 django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+django-resized = "*"
 
 [dev-packages]
 black = "*"
