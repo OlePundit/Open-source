@@ -1,92 +1,126 @@
+## AFRO-PIX BACKEND
 
 
-## Getting Started for Development
 
-### 1. Install Python(3.11)
+## Description
 
-- Debian/Ubuntu
-     Install using [apt-get](https://linux.die.net/man/8/apt-get).
-     Install using [apt-get](https://linux.die.net/man/8/apt-get).
+The **AFRO-PIX-API** is the backbone of an application for an image sharing app.
 
-    Install using [apt-get](https://linux.die.net/man/8/apt-get).
 
-        $ sudo apt-get update
-        $ sudo apt-get install python3
 
-+   - macOS
-    1. Install [Brew](https://brew.sh).
-    2. Install Python using Brew:
-        ```sh
-        $ brew install python3
+## Development set up
+
+
+-   Check that python 3.11.x or above is installed:
+
+    ```
+    python --version
+    >> Python 3.11.x
+    ```
+
+-   Install and set up postgresql:
+
+    Follow the guide in this [documentation](https://docs.google.com/document/d/1G0UQUusBdoAvydu7w_EaaXjvOLC3UidFN3z7dddCG3o/edit?usp=sharing)
+
+
+    * [How to install PostgreSQL on windows](https://www.geeksforgeeks.org/install-postgresql-on-windows/)
+    * [How to install PostgreSQL on Linux](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-22-04-quickstart)
+    * [How to install PostgreSQL on Mac](https://www.geeksforgeeks.org/install-postgresql-on-mac/)
+
+
+-   Install and setup Redis
+    * [How to Install and Setup Redis](https://redis.io/docs/install/install-redis/)
+
+-  Database
+    * Switch to postgres account (in terminal)
+        ```bash
+        $ sudo -iu postgres psql
+        >>> postgres=#
         ```
-    3. Make sure the Brew executables `bin` directory is in your `PATH` variable.
-- Windows
-    1. Download Python from the [Windows Download](https://www.python.org/downloads/windows/) page.
-    2. Run the installer.
-        - Be sure to _check_ the box on to have Python added to your `PATH` if the installer offers such an option (it's normally off by default).
+    * Create or Change default password
+        ```bash
+        postgres=# ALTER USER postgres PASSWORD "myPassword";
+        >>> ALTER ROLE
+        ```
+    * Create a database instance.
+        ```bash
+        postgres=# CREATE DATABASE "afropix";
 
-For more details, see this gist - [Set up a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7).
+        ```
+    * Finally, exit the psql client by using the `\q` command.
 
-###  2. Fork this repo.
-Read more... [How to fork a github repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 
-### 3. Clone the fork to your local machine
-Read more... [How to clone a github repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-
-```bash
-$ git clone https://github.com/yourusername/Open-source.git
-```
-
-### 4. Set up virtual environment and install dependencies with pipenv
-Read more... [Prefered installation of pipenv](https://pipenv.pypa.io/en/latest/installation/#preferred-installation-of-pipenv)
-
-#### Navigate to the project backend folder and follow the steps below
-
-- Install pipenv
-    1. using pip
-    ```bash
-    $ pip install pipenv
+- Clone the Afro-Pix repo and cd into it
     ```
-    2. using homebrew
-    ```bash
-    $ brew install pipenv
+    git clone https://github.com/[username|afro-pix.git]
     ```
-- Install Dependencies
-    ```bash
-    $ pipenv install # pipenv will create a new virtual environment and then install all dependencies in the Pipfile
-    ```
-- Activate the New environment
-    ```bash
-    $ pipenv shell
-    ```
-    if using vscode
+- Create a virtual environment with pipenv
+    - [How to Install Pipenv](https://pypi.org/project/pipenv/)
+    - [Read more about Pipenv](https://realpython.com/pipenv-guide/)
 
-    ```bash
-    $ code .  # open the folder and start coding
-    ```
+        ```bash
+        $ pip install pipenv  # install pipenv
 
-    to uninstall the environment created, within the same directory run
-    ```bash
-    $ pipenv --rm
+        $ pipenv shell  # create a virtual environment and activate
+
+        $ make  # install dependencies from Pipfile
+        ```
+        > **_NOTE:_**  If you don't have make installed, you can install or run the commands in the make file manually on the cmd
+
+- Create Application environment variables and save them in .env file in the root folder
+    ```
+    DEBUG=True
+    SECRET_KEY='super_secret'
+    ALLOWED_HOSTS='*'
+    RUN_MODE='development'
+    LANGUAGE_CODE='en-us'
+    TIME_ZONE='Africa/Nairobi'
+
+    REDIS_CACHE_SERVER='127.0.0.1:6379'
+    DB_NAME='afropix'
+    DB_USER='postgres'
+    DB_PASSWORD=*The password that you set while configuring postgres*
+    DB_HOST='127.0.0.1'
+    DB_PORT='5432'
     ```
 
-- Make Database Migrations
-  ```bash
-  $ python manage.py migrate
-  ```
+- Running migrations
 
-- Create user with admin clearance
-  ```bash
-  $ python manage.py createsuperuser  # fill in the required information
-  ```
+    ```
+    make migrations
 
-- Start Development Server
-  ```bash
-  $ python manage.py runserver
-  ```
+    make migrate
+    ```
 
-  To login to the default django admin, go to: `localhost:8000/admin`
 
-  To view the exposed api endpoints documentation go to: `localhost:8000/api/schema/redoc/  # make sure you've loggedin to the admin first.`
 
-  To view djangorestframeworks browsable api endpoint got to: `localhost:8000//api/v1/`
+- Run application.
+    ```
+    make serve
+    ```
+
+
+
+### Merge Request Process
+
+-   A contributor shall identify a task to be done from the board.
+-   If there is a bug , feature or chore that has not been included among the tasks, the contributor can add it only after consulting the Scrum Master and the task being accepted.
+-   The Contributor shall then create a branch off the `development` branch where they are expected to undertake the task they have chosen.
+-   After undertaking the task, a fully detailed pull request shall be submitted to the owners of this repository for review.
+-   If there any changes requested ,it is expected that these changes shall be effected and the pull request resubmitted for review.Once all the changes are accepted, the pull request shall be closed and the changes merged into `development` by the owners of this repository.
+-   There should be only one commit per Merge Request, to achieve this use `git commit --amend`
+
+
+### Code Quality Conventions
+
+Please refer to the best practices outlined in BestPractices.md
+
+
+
+## Built with
+- Python version  3.11
+- Django (DRF)
+- Djoser
+- Postgres
+- Redoc
+ ```

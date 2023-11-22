@@ -11,18 +11,18 @@ from decouple import Csv, config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # apps/
-APPS_DIR = BASE_DIR / 'apps'
+APPS_DIR = BASE_DIR / "apps"
 # core
-CORE_DIR = BASE_DIR / 'core'
+CORE_DIR = BASE_DIR / "core"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-c(km)ivwjya95662#a(fv(8@r1i$pkz4lfqtu_ps66n4nf0eq6')
+SECRET_KEY = config("SECRET_KEY", default="django-insecure-c(km)ivwjya95662#a(fv(8@r1i$pkz4lfqtu_ps66n4nf0eq6")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config("DEBUG", default=True, cast=bool)
 
 # # USER INFO
 # ADMIN_USERNAME = config("ADMIN_USERNAME")
@@ -33,7 +33,7 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 # MANAGERS = ADMINS
 
-ADMIN_URL = 'admin/'
+ADMIN_URL = "admin/"
 
 SITE_ID = 1
 
@@ -54,41 +54,40 @@ AUTHENTICATION_BACKENDS = [
 # Application definition
 
 DJANGO_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
-    'rest_framework_simplejwt', # for json web token authentications
-    'rest_framework_simplejwt.token_blacklist',
-    'corsheaders', #
-    'djoser', # TODO: SOCIAL AUTH CONFIG
-    'phonenumber_field', # correct country code for db storages
-    'notifications',
-    'storages',
-    'imagekit', # process images before uploads e.g set size and quality
-    'django_cleanup.apps.CleanupConfig', # prevent duplication of files in files fields
-    'drf_spectacular', # For api documentation in development
-    'drf_spectacular_sidecar', # provides static files for offline view of api documentation
-    'django_resized'
+    "rest_framework",
+    "rest_framework_simplejwt",  # for json web token authentications
+    "rest_framework_simplejwt.token_blacklist",
+    "corsheaders",  #
+    "djoser",  # TODO: SOCIAL AUTH CONFIG
+    "phonenumber_field",  # correct country code for db storages
+    "notifications",
+    "storages",
+    "imagekit",  # process images before uploads e.g set size and quality
+    "django_cleanup.apps.CleanupConfig",  # prevent duplication of files in files fields
+    "drf_spectacular",  # For api documentation in development
+    "drf_spectacular_sidecar",  # provides static files for offline view of api documentation
+    "django_resized"
 ]
 
 LOCAL_APPS = [
-    'apps.authentication',
-    'apps.creators',
-    'apps.posts'
+    "apps.authentication",
+    "apps.creators",
+    "apps.posts",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-AUTH_USER_MODEL = 'authentication.User'
+AUTH_USER_MODEL = "authentication.User"
 
 CORS_ALLOW_HEADERS = [
     "accept",
@@ -105,7 +104,7 @@ CORS_ALLOW_HEADERS = [
 CORS_ALLOWED_ORIGINS = (
     # TODO - set this properly for production
     "http://localhost:8000",
-    "http://localhost:3000", # should correspond to fronted server in development
+    "http://localhost:3000",  # should correspond to fronted server in development
     "http://localhost:5173",
 )
 
@@ -198,11 +197,11 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ CORE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [CORE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
@@ -216,16 +215,26 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = "core.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": config("REDIS_CACHE_SERVER"),
+    }
+}
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
     }
 }
 
@@ -235,16 +244,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -288,12 +297,12 @@ STATICFILES_FINDERS = (
 
 MEDIA_URL = "/media/"
 
-MEDIA_ROOT = BASE_DIR / "media" # for development purposes, not tracked by git
+MEDIA_ROOT = BASE_DIR / "media"  # for development purposes, not tracked by git
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # LOGGING
 # ------------------------------------------------------------------------------
@@ -348,12 +357,12 @@ if RUN_MODE == "production":
     SECURE_SSL_REDIRECT = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "http")
 
     SESSION_COOKIE_SECURE = True
 
 # local settings
 else:
     # send emails to console
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = config("EMAIL_HOST_USER", default='noreply@afropix.com')
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = config("EMAIL_HOST_USER", default="noreply@afropix.com")
