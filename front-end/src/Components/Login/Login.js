@@ -1,60 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
+
 export const Login = () => {
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
+
+  function handleEmailChange(event) {
+    const { name, value, type, checked } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    // submitToApi(formData)
+    console.log(formData);
+  }
+
   return (
     <div className="desktop">
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="frame">
             <div className="div">
-              <h1>AfroPix</h1>
+              <h1 className="LoginHeader">AfroPics</h1>
               <div className="overlap-group-wrapper">
                 <div className="overlap-group">
                   <div className="frame-2">
-                    <form action="/submit" method="post">
-                      <label className="text-wrapper" for="email">
-                        Email
-                      </label>
+                    <form onSubmit={handleSubmit}>
+                      <label>Email</label>
                       <input
-                        className="frame-3"
+                        style={{ marginBottom: "20px" }}
                         type="email"
                         id="email"
                         name="email"
-                        required
+                        placeholder="Email"
+                        onChange={handleEmailChange}
+                        value={formData.email}
                       />
-                      <label className="text-wrapper-2" for="password">
-                        Password
-                      </label>
 
+                      <label htmlFor="password">Password</label>
                       <input
-                        className="frame-4"
                         type="password"
                         id="password"
+                        placeholder="Password"
                         name="password"
-                        required
+                        onChange={handleEmailChange}
+                        value={formData.password}
                       />
-                      <div className="frame-7">
-                        <input
-                          className="text-wrapper-9"
-                          type="submit"
-                          value="Login"
-                        ></input>
-                      </div>
+                      <button className="LoginButton">LOG IN</button>
                     </form>
-
-                    <div className="frame-7">
-                      <div className="text-wrapper-9">LOG IN</div>
-                    </div>
 
                     <div className="overlap-group-2">
                       <div className="frame-5">
-                        <div className="text-wrapper-3">remember me</div>
+                        <label htmlFor="rememberMe" className="text-wrapper-3">
+                          Remember me
+                        </label>
+                        <input
+                          type="checkbox"
+                          id="rememberMe"
+                          className="checkBox"
+                          checked={formData.rememberMe}
+                          onChange={handleEmailChange}
+                          name="rememberMe"
+                        />
+
                         <p className="not-a-member-sign-up">
                           Not a Member? Sign Up&nbsp;&nbsp;Here
                         </p>
                         <div className="text-wrapper-4">OR</div>
                         <div className="text-wrapper-5">forgot password ?</div>
-                        <div className="rectangle" />
+
                         <img
                           className="vector"
                           alt="Vector"
@@ -73,15 +95,11 @@ export const Login = () => {
                     <div className="overlap-2">
                       <div className="log-in-with-facebook-wrapper">
                         <p className="log-in-with-facebook">
-                          <span className="span">Continue with </span>
+                          <span className="span">Log in with </span>
                           <span className="text-wrapper-8">Facebook</span>
                         </p>
                       </div>
-                      <img
-                        className="vector-2"
-                        alt="Vector"
-                        src="/vector.svg"
-                      />
+                      <img className="vector-2" alt="Vector" src="vector.svg" />
                     </div>
                   </a>
 
@@ -92,9 +110,7 @@ export const Login = () => {
                     target="_blank"
                   >
                     <div className="frame-8">
-                      <div className="text-wrapper-10">
-                        Continue with Google
-                      </div>
+                      <div className="text-wrapper-10">Log in with Google</div>
                       <img
                         className="frame-9"
                         alt="Frame"

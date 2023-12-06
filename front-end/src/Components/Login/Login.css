@@ -1,48 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: none;
+  margin: 0;
+  height: 100%;
+  font-family: "Inter-Medium", Helvetica;
+}
+/*
 .desktop {
-  background-color: #ffffff;
+  background-color: yellow;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-}
-
+  margin: 0;
+}*/
 .desktop .overlap-wrapper {
   background-color: #ffffff;
   height: 713px;
   overflow: hidden;
-  width: 2000px;
+  width: 100%;
 }
-
 .desktop .overlap {
   height: 1052px;
   position: relative;
-  top: -28px;
+  /* top: -28px;*/
 }
-
 .desktop .frame {
   height: 910px;
-  left: 1040px;
+  left: 1020px;
   position: absolute;
   top: 0;
   width: 418px;
 }
-
 .desktop .div {
   height: 867px;
   overflow: hidden;
   position: relative;
-  top: 43px;
 }
-
+.LoginHeader {
+  text-align: center;
+}
 .desktop .afro-pix {
   height: 31px;
   left: 126px;
   position: absolute;
   top: 8px;
   width: 143px;
-}
-h1 {
-  text-align: center;
 }
 .desktop .overlap-group-wrapper {
   height: 698px;
@@ -59,7 +65,6 @@ h1 {
   top: 3px;
   width: 425px;
 }
-
 .desktop .frame-2 {
   height: 558px;
   left: 0;
@@ -67,7 +72,6 @@ h1 {
   top: 0;
   width: 425px;
 }
-
 .desktop .text-wrapper {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -81,7 +85,6 @@ h1 {
   top: -1px;
   white-space: nowrap;
 }
-
 .desktop .text-wrapper-2 {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -96,28 +99,6 @@ h1 {
   white-space: nowrap;
 }
 
-.desktop .frame-3 {
-  border: 1px solid;
-  border-color: #727272;
-  border-radius: 8px;
-  height: 27px;
-  left: 0;
-  position: absolute;
-  top: 34px;
-  width: 400px;
-}
-
-.desktop .frame-4 {
-  border: 1px solid;
-  border-color: #727272;
-  border-radius: 8px;
-  height: 27px;
-  left: 4px;
-  position: absolute;
-  top: 133px;
-  width: 400px;
-}
-
 .desktop .overlap-group-2 {
   height: 299px;
   left: 4px;
@@ -125,7 +106,6 @@ h1 {
   top: 259px;
   width: 421px;
 }
-
 .desktop .frame-5 {
   height: 100px;
   left: 0;
@@ -133,7 +113,7 @@ h1 {
   top: 0;
   width: 421px;
 }
-
+/***? */
 .desktop .text-wrapper-3 {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -144,10 +124,9 @@ h1 {
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 1.5px;
+  top: -1px;
   white-space: nowrap;
 }
-
 .desktop .not-a-member-sign-up {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -172,10 +151,9 @@ h1 {
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 87px;
+  top: 89px;
   white-space: nowrap;
 }
-
 .desktop .text-wrapper-5 {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -186,20 +164,19 @@ h1 {
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 1.5px;
+  top: -1px;
   white-space: nowrap;
 }
-
-.desktop .rectangle {
+.desktop .checkBox {
   border: 1px solid;
   border-color: #727272;
   height: 10px;
   left: 5px;
   position: absolute;
-  top: 5px;
+  top: -15px;
   width: 9px;
 }
-
+/***/
 .desktop .vector {
   height: 1px;
   left: 0;
@@ -208,7 +185,6 @@ h1 {
   top: 96px;
   width: 173px;
 }
-
 .desktop .img {
   height: 1px;
   left: 226px;
@@ -217,7 +193,6 @@ h1 {
   top: 96px;
   width: 178px;
 }
-
 .desktop .frame-6 {
   height: 241px;
   left: 111px;
@@ -225,9 +200,9 @@ h1 {
   top: 58px;
   width: 166px;
 }
-
+/***/
 .desktop .text-wrapper-6 {
-  color: #f2faff;
+  color: red;
   font-family: "Inter-Medium", Helvetica;
   font-size: 16px;
   font-weight: 500;
@@ -239,7 +214,6 @@ h1 {
   top: -1px;
   white-space: nowrap;
 }
-
 .desktop .div-wrapper {
   height: 19px;
   left: 0;
@@ -247,9 +221,8 @@ h1 {
   top: 222px;
   width: 166px;
 }
-
 .desktop .text-wrapper-7 {
-  color: #f2faff;
+  color: red;
   font-family: "Inter-Medium", Helvetica;
   font-size: 16px;
   font-weight: 500;
@@ -261,7 +234,6 @@ h1 {
   top: -1px;
   white-space: nowrap;
 }
-
 .desktop .login-with-FB {
   height: 42px;
   left: 14px;
@@ -269,13 +241,11 @@ h1 {
   top: 427px;
   width: 390px;
 }
-
 .desktop .overlap-2 {
   border-radius: 8px;
   height: 42px;
   position: relative;
 }
-
 .desktop .log-in-with-facebook-wrapper {
   border: 1px solid;
   border-color: #000000;
@@ -285,7 +255,6 @@ h1 {
   position: absolute;
   top: 0;
   width: 390px;
-  /* background:#1778f2;*/
 }
 
 .desktop .log-in-with-facebook {
@@ -299,18 +268,14 @@ h1 {
   position: absolute;
   text-align: center;
   top: -5px;
-
   white-space: nowrap;
 }
-
 .desktop .span {
   color: #000000;
 }
-
 .desktop .text-wrapper-8 {
   color: #191919;
 }
-
 .desktop .vector-2 {
   height: 27px;
   left: 6px;
@@ -318,7 +283,7 @@ h1 {
   top: 8px;
   width: 27px;
 }
-
+/*
 .desktop .frame-7 {
   background-color: #8ec711;
   border: 1px solid;
@@ -329,8 +294,28 @@ h1 {
   position: absolute;
   top: 200px;
   width: 400px;
+}*/
+.LoginButton {
+  background-color: #8ec711;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 8px;
+  height: 42px;
+  left: 4px;
+  position: absolute;
+  top: 200px;
+  width: 400px;
+  color: #f2faff;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+
+  margin-bottom: 40px;
 }
 
+/****
 .desktop .text-wrapper-9 {
   color: #f2faff;
   font-family: "Inter-Medium", Helvetica;
@@ -343,8 +328,7 @@ h1 {
   text-align: center;
   top: 11px;
   width: 55px;
-}
-
+}**/
 .desktop .login-with-google {
   border: 1px solid;
   border-color: #000000;
@@ -355,13 +339,11 @@ h1 {
   top: 518px;
   width: 390px;
 }
-
 .desktop .frame-8 {
   height: 42px;
   position: relative;
   width: 261px;
 }
-
 .desktop .text-wrapper-10 {
   color: #191919;
   font-family: "Inter-Medium", Helvetica;
@@ -375,29 +357,27 @@ h1 {
   top: 11px;
   white-space: nowrap;
 }
-
 .desktop .frame-9 {
-  height: 20px;
+  height: 25px;
   left: 8px;
   position: absolute;
-  top: 10px;
-  width: 20px;
+  top: 8px;
+  width: 25px;
 }
-
+/*
 .desktop .frame-10 {
   height: 1052px;
   left: 0;
   position: absolute;
   top: 0;
   width: 1440px;
-}
+} */
 
 .desktop .overlap-3 {
   height: 1052px;
   position: relative;
   width: 960px;
 }
-
 .desktop .rectangle-wrapper {
   height: 1052px;
   left: 0;
@@ -405,19 +385,34 @@ h1 {
   top: 0;
   width: 960px;
 }
-
 .desktop .rectangle-2 {
   background-color: #f5f5f5;
   height: 1024px;
   position: relative;
   top: 28px;
 }
-
 .desktop .carpenter {
   height: 713px;
   left: 0;
   object-fit: cover;
   position: absolute;
-  top: 28px;
   width: 960px;
+}
+
+input {
+  width: 400px;
+  margin-bottom: 15px;
+  height: 30px;
+  text-indent: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  display: block;
+}
+input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 20px;
+  font-style: inter;
 }
